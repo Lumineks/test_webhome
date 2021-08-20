@@ -1,32 +1,30 @@
 import './Form.css';
-import Button from "../Button/Button"
+import Button from '../UI/Button/Button';
+import '../UI/Field/Field.css';
+import InputField from '../UI/Field/InputField/InputField';
+import Textarea from '../UI/Field/TextareaField/TextareaField';
 
 const Form = () => {
   return (
     <form className='form'>
       <div className='form-row'>
-        <label className='form-label' htmlFor='field-username'>
-          Введите ваше имя
-        </label>
-        <input
-          className='form-input'
+        <InputField
+          label='Введите ваше имя'
           id='field-username'
           name='name'
           type='text'
-          required
           placeholder='Иван'
+          required
         />
       </div>
       <div className='form-row'>
-        <label className='form-label' htmlFor='field-text'>
-          Введите ваше сообщение
-        </label>
-        <textarea
-          className='form-textarea'
+        <Textarea
+          label='Введите ваше сообщение'
           id='field-text'
           name='text'
+          placeholder='Ваш комментарий'
           required
-          placeholder='Ваш комментарий'></textarea>
+        />
       </div>
       <Button className='form-btn' type='submit' text='Отправить' />
     </form>

@@ -1,0 +1,10 @@
+.Button.load-btn {
+  border-color: #ddd;
+}
+
+@media (hover: hover) {
+  .Button.load-btn:hover {
+    background-color: #34D399;
+    color: #fff;
+  }
+}

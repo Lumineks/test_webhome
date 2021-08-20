@@ -6,7 +6,7 @@
   padding: 8px 16px;
   border: 2px solid transparent;
   border-radius: 6px;
-  background-color: #34D399;
+  background-color: transparent;
   cursor: pointer;
   font: inherit;
   font-size: inherit;
@@ -25,13 +25,5 @@
 @media only screen and (min-width: 768px) {
   .Button {
     padding: 10px 20px;
-  }
-}
-
-@media (hover: hover) {
-  .Button:hover {
-    background-color: transparent;
-    border-color: #ddd;
-    color: #374151;
   }
 }

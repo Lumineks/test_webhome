@@ -1,0 +1,18 @@
+.Comments-list {
+  margin-bottom: 30px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Comments-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .Comments-list {
+    margin: 0 -7.5px 30px;
+    justify-content: flex-start;
+  }
+}
