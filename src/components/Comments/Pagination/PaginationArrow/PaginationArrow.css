@@ -1,0 +1,29 @@
+.Pagination-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 38px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+  padding: 0;
+}
+
+.Pagination-arrow svg {
+  width: 30px;
+  height: 30px;
+}
+
+.Pagination-arrow:disabled {
+  background-color: rgba(221, 221, 221, 0.5)
+}
+
+.Pagination-arrow-prev {
+  margin-right: 10px;
+}
+
+.Pagination-arrow-next {
+  margin-left: 10px;
+}

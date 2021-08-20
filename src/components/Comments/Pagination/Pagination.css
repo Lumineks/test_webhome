@@ -1,0 +1,36 @@
+.Pagination {
+  margin: 30px auto;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.Pagination-list {
+  display: flex;
+}
+
+.Pagination-to {
+  width: 35px;
+  border: 2px solid #ddd;
+  background-color: #fff;
+  font-size: 1.075rem;
+  position: absolute;
+}
+
+.Pagination-to.active {
+  border-color: #34D399;
+  background-color: #34D399;
+  color: #fff;
+}
+
+.Pagination-start {
+  left: 0;
+}
+
+.Pagination-end {
+  right: 0;
+}

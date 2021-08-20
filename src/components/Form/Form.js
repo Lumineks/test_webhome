@@ -1,3 +1,4 @@
+import React from 'react';
 import './Form.css';
 import Button from '../UI/Button/Button';
 import '../UI/Field/Field.css';
@@ -31,4 +32,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default React.memo(Form);
