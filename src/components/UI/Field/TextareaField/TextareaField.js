@@ -1,6 +1,7 @@
+import React from 'react';
 import './TextareaField.css';
 
-const TextareaField = (props) => {
+const TextareaField = React.forwardRef((props, ref) => {
   return (
     <>
       <label className='Label' htmlFor={props.id}>
@@ -11,9 +12,10 @@ const TextareaField = (props) => {
         id={props.id}
         name={props.name}
         placeholder={props.placeholder}
-        required={props.required}></textarea>
+        required={props.required}
+        ref={ref}></textarea>
     </>
   );
-};
+});
 
 export default TextareaField;

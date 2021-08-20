@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useFetching = (callback) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -6,19 +6,14 @@ export const useFetching = (callback) => {
 
   const fetching = async () => {
     try {
-      console.log('from useFetcing custom hook try')
       setIsLoading(true);
       await callback();
-    }
-    catch (e) {
-      console.log('error:', e.message)
+    } catch (e) {
       setError(e.message);
-    }
-    finally {
-      console.log('from useFetcing custom hook finnaly')
+    } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return [fetching, isLoading, error];
 };

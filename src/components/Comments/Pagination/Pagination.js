@@ -1,11 +1,13 @@
+import React, { useEffect, useRef } from 'react';
 import './Pagination.css';
 import PaginationItem from './PaginationItem/PaginationItem';
 import PaginationArrow from './PaginationArrow/PaginationArrow';
 import GetPages from './Utils/GetPages';
-import { useRef } from 'react';
+
+let leftNumber = 2;
 
 const Pagination = (props) => {
-  const { currentPage, lastPage, goTo } = props;
+  const { currentPage, lastPage, goTo, visible } = props;
 
   // Наверняка есть более элегантная реализация, еще не приходилось делать пагинацию, хотелось на первый раз сделать без копипаста готовых решений
 
@@ -13,19 +15,26 @@ const Pagination = (props) => {
 
   switch (currentPage - leftNumber.current) {
     case 2:
-      if (currentPage != lastPage - 1 && currentPage != lastPage) leftNumber.current += 1;
+      if (currentPage != lastPage - 1 && currentPage != lastPage) {
+        leftNumber.current += 1;
+      }
       break;
     case 0:
-      if (currentPage !== 2) leftNumber.current -= 1;
+      if (currentPage !== 2) {
+        leftNumber.current -= 1;
+      }
       break;
     case 3:
-      if (currentPage !== lastPage) leftNumber.current -= 1;
+      if (currentPage !== lastPage) {
+        leftNumber.current -= 1;
+      }
     default:
       break;
   }
 
   let numbers = [];
 
+  // На случай малого кол-ва страниц
   switch (lastPage) {
     case 2:
       break;
@@ -41,7 +50,7 @@ const Pagination = (props) => {
   }
 
   return (
-    <div className='Pagination'>
+    <div className={`Pagination ${visible ? 'visible' : ''}`}>
       <button
         className={`Pagination-to Pagination-start ${currentPage === 1 ? 'active' : ''}`}
         type='button'
@@ -83,7 +92,9 @@ const Pagination = (props) => {
         className={`Pagination-to Pagination-end ${currentPage === lastPage ? 'active' : ''}`}
         type='button'
         onClick={() => {
-          if (lastPage >= 6) leftNumber.current = lastPage - 3;
+          if (lastPage >= 6) {
+            leftNumber.current = lastPage - 3;
+          }
           goTo(lastPage);
         }}>
         {props.lastPage}

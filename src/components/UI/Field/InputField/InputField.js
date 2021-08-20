@@ -1,6 +1,7 @@
+import React from 'react';
 import './InputField.css';
 
-const InputField = (props) => {
+const InputField = React.forwardRef((props, ref) => {
   return (
     <>
       <label className='Label' htmlFor={props.id}>
@@ -13,9 +14,10 @@ const InputField = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         required={props.required}
+        ref={ref}
       />
     </>
   );
-};
+});
 
 export default InputField;

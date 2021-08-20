@@ -7,6 +7,11 @@
   justify-content: center;
   margin-bottom: 8px;
   position: relative;
+  opacity: 0;
+}
+
+.Pagination.visible {
+  opacity: 1;
 }
 
 .Pagination-list {
