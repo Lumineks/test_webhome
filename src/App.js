@@ -1,44 +1,60 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import Form from './components/Form/Form';
 
 function App() {
-  
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    async function myFunc() {
+      async function postData(url = '', data = {}) {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        return await response.json();
+      }
+
+      await postData('https://jordan.ashton.fashion/api/goods/30/comments', {
+        name: 's123omename123',
+        text: 'long long comment123123',
+      }).then((data) => {
+        console.log(data);
+      });
+    }
+    // myFunc();
+    // fetch('https://jordan.ashton.fashion/api/goods/30/comments?page=79')
+
+    fetch('https://jordan.ashton.fashion/api/goods/30/comments')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setComments(data.data);
+      })
+      .catch((e) => console.error(e));
+  }, []);
+
+  console.log(comments);
 
   return (
     <div className='App'>
       <div className='container'>
         <h1 className='title'>Тестовое задание</h1>
-        <form className='form'>
-          <div className='form-row'>
-            <label className='form-label' htmlFor='field-username'>
-              Введите ваше имя
-            </label>
-            <input
-              className='form-input'
-              id='field-username'
-              name='name'
-              type='text'
-              required
-              placeholder='Иван'
-            />
-          </div>
-          <div className='form-row'>
-            <label className='form-label' htmlFor='field-text'>
-              Введите ваше сообщение
-            </label>
-            <textarea
-              className='form-textarea'
-              id='field-text'
-              name='text'
-              required
-              placeholder='Ваш комментарий'></textarea>
-          </div>
-          <button className='form-btn button' type='submit'>
-            Отправить
-          </button>
-        </form>
+        <Form />
 
-        <div className='list'></div>
+        <h2 className='subtitle'>Комментарии</h2>
+        <div className='list'>
+          {comments.length &&
+            comments.map((comment) => (
+              <div style={{ margin: 10, border: '3px solid orange' }} key={comment.id}>
+                <div>name: {comment.name}</div>
+                <div>text: {comment.text}</div>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,37 @@
+.Button {
+  display: inline-block;
+  appearance: none;
+  transition: background-color 0.3s ease, box-shadow 0.4s ease, border-color 0.4s ease, color 0.4s ease, transform 0.3s ease;
+  outline: transparent;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: #34D399;
+  cursor: pointer;
+  font: inherit;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.Button:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #2563EB;
+}
+
+.Button:active {
+  box-shadow: inset 0px 10px 4px rgba(0, 0, 0, 0.1), 0 0 0 2px #2563EB;
+}
+
+@media only screen and (min-width: 768px) {
+  .Button {
+    padding: 10px 20px;
+  }
+}
+
+@media (hover: hover) {
+  .Button:hover {
+    background-color: transparent;
+    border-color: #ddd;
+    color: #374151;
+  }
+}

@@ -35,6 +35,7 @@ a {
 
 button {
   cursor: pointer;
+  color: inherit;
 }
 
 p {
@@ -62,7 +63,7 @@ img {
 }
 
 .container {
-  max-width: 1320px;
+  max-width: 1230px;
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
