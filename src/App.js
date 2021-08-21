@@ -18,7 +18,6 @@ function App() {
 
   const [fetchPosts, isLoading, error] = useFetching(async () => {
     const response = await CommentService.getComments(page);
-    console.log(response);
     setComments(response.data);
     setTotalPagesCount(response.last_page);
     setTotalAmount(response.total);
@@ -43,7 +42,7 @@ function App() {
   const updateHandler = () => {
     setPage(1);
     setIsUpdated(false);
-  }
+  };
 
   return (
     <div className='App'>

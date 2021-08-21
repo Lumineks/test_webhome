@@ -22,7 +22,6 @@ const Form = (props) => {
       body: JSON.stringify(comment),
     })
       .then((response) => response.json()).then(data => {
-        console.log(data);
         props.update();
         alert('Комментарий отправлен - вы будете перенаправлены на первую страницу списка');
       })

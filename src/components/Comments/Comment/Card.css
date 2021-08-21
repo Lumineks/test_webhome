@@ -20,6 +20,7 @@
 .card-name {
   font-size: 1.25rem;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 .card-time {
